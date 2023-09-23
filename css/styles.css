@@ -1,0 +1,8 @@
+.col{
+   max-width: 33%; 
+   height: auto;
+}
+.row{
+    display: flex;
+    align-content: space-around;
+}
