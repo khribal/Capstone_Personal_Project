@@ -4,5 +4,6 @@
 }
 .row{
     display: flex;
+    flex: row nowrap;
     align-content: space-around;
 }
