@@ -53,6 +53,7 @@ include('includes/navbar.php');
   </tbody>
 </table>
 </div>
+
 <!-- Images Row -->
 <div class="container">
   <div class="row">
