@@ -6,7 +6,6 @@ drop table if exists restaurant_location;
 drop table if exists orders;
 drop table if exists customer;
 
-
 CREATE TABLE customer (
     id integer,
     fname varchar(50),
