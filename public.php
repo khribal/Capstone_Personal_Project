@@ -25,14 +25,15 @@ include('includes/navbar.php');
     </tr>
   </thead>
   <tbody>
-  <?php 
+
+<!-- Selecting data from SQL to populate table -->
+<?php 
 $con = mysqli_connect("db.luddy.indiana.edu","i494f23_klhribal","my+sql=i494f23_klhribal", "i494f23_klhribal");
 if (!$con){
     die("Failed to connect to MySQL: " . mysqli_connect_error() . "<br><br>");
 };
 
 $query = 'SELECT * from menu_items;';
-
 $result = mysqli_query($con, $query);
 
 
@@ -45,7 +46,6 @@ while($row = mysqli_fetch_assoc($result)){
 };
 
 mysqli_close($conn);
-
 ?>
     <!-- <tr> -->
 <!-- <td>$10.99</td> -->
