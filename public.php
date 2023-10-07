@@ -12,64 +12,61 @@
 include('includes/navbar.php');
 ?>
 
-<?php 
-$con = mysqli_connect("db.luddy.indiana.edu","i494f23_klhribal","my+sql=i494f23_klhribal", "i494f23_klhribal");
-if (!$con){
-    die("Failed to connect to MySQL: " . mysqli_connect_error() . "<br><br>");
-}
-
-$name_query = "SELECT item_name from menu_items;"
-
-$desciption_query = "SELECT item_description from menu_items;"
-
-$price_query = "SELECT price from menu_items"
-
-$name_result = mysqli_query($con, $name_query);
-
-$desciption_result = mysqli_query($con, $desciption_query);
-
-$price_result = mysqli_query($con, $price_query);
-
-mysqli_close($conn);
-?>
 
 <!-- Dishes Table -->
 <div class="dish-table">
 
-<table class="table table-striped table-dark">
+<table class="table table-striped">
   <thead>
     <tr>
         <th scope="col">Dish Name</th>
         <th scope="col">Dish Price</th>
-        <th scope="col">Dish Category</th>
         <th scope="col">Dish Description</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">Strawberry Shortcake</th>
-      <td>$10.99</td>
-      <td>Cakes</td>
-      <td>This classic treat offers a harmonious blend of textures and flavors, with the sweet and tart strawberries complementing the light and airy cake or biscuits, all crowned by the richness of the whipped cream.</td>
+  <?php 
+$con = mysqli_connect("db.luddy.indiana.edu","i494f23_klhribal","my+sql=i494f23_klhribal", "i494f23_klhribal");
+if (!$con){
+    die("Failed to connect to MySQL: " . mysqli_connect_error() . "<br><br>");
+};
+
+$query = 'SELECT * from menu_items;';
+
+$result = mysqli_query($con, $query);
+
+
+while($row = mysqli_fetch_assoc($result)){
+  echo "<tr>";
+  echo '<th scope="row">'.$row['item_name']."</th>";
+  echo "<td>".$row['price']."</td>";
+  echo "<td>".$row['item_description']."</td>";
+  echo "</tr>";
+};
+
+mysqli_close($conn);
+
+?>
+    <!-- <tr> -->
+<!-- <td>$10.99</td> -->
+    <!-- <th scope="row">Strawberry Shortcake</th> -->
+      <!-- <td>This classic treat offers a harmonious blend of textures and flavors, with the sweet and tart strawberries complementing the light and airy cake or biscuits, all crowned by the richness of the whipped cream.</td>
     </tr>
     <tr>
       <th scope="row">Peach Cobbler</th>
       <td>$12.99</td>
-      <td>Baked Good</td>
       <td>Indulge in the warmth of summer with our Peach Cobbler, a comforting dessert that captures the essence of ripe, juicy peaches. Served piping hot, our cobbler features succulent peach slices baked to perfection beneath a sweet, golden biscuit topping.</td>
     </tr>
     <tr>
       <th scope="row">Creme Brulee</th>
       <td>$7.99</td>
-      <td>Custard</td>
       <td>Experience the epitome of elegance with our Crème Brûlée, a timeless French dessert. Delight in the silky smoothness of vanilla-infused custard, lovingly prepared to a velvety perfection. The pièce de résistance is the tantalizingly crisp, caramelized sugar crust that shatters with your first indulgent spoonful.</td>
     </tr>
     <tr>
       <th scope="row">Cheesecake</th>
       <td>$13.99</td>
-      <td>Cakes</td>
       <td>Indulge in pure decadence with our Cheesecake, a luxurious dessert that defines creamy perfection. Our signature cheesecake is a masterful blend of rich cream cheese, sugar, and a hint of vanilla, baked to a velvety smoothness on a buttery graham cracker crust. </td>
-    </tr>
+    </tr> -->
   </tbody>
 </table>
 </div>
