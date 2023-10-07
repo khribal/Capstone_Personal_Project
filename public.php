@@ -12,22 +12,29 @@
 include('includes/navbar.php');
 ?>
 
+<?php 
+$con = mysqli_connect("db.luddy.indiana.edu","i494f23_klhribal","my+sql=i494f23_klhribal", "i494f23_klhribal");
+if (!$con){
+    die("Failed to connect to MySQL: " . mysqli_connect_error() . "<br><br>");
+}
+
+$name_query = "SELECT item_name from menu_items;"
+
+$desciption_query = "SELECT item_description from menu_items;"
+
+$price_query = "SELECT price from menu_items"
+
+$name_result = mysqli_query($con, $name_query);
+
+$desciption_result = mysqli_query($con, $desciption_query);
+
+$price_result = mysqli_query($con, $price_query);
+
+mysqli_close($conn);
+?>
+
 <!-- Dishes Table -->
 <div class="dish-table">
-
-<?php
-        $con = mysqli_connect("db.luddy.indiana.edu","i494f23_klhribal","my+sql=i494f23_klhribal", "i494f23_klhribal");
-        if (!$con){
-            die("Failed to connect to MySQL: " . mysqli_connect_error() . "<br><br>");
-        }
-        $result = mysqli_query($con, "SELECT * FROM lesson as l join freelance as f on f.tutorID=l.tutorID where f.tutorID IN (SELECT tutorID from lesson) GROUP BY lesson_location order by lesson_location;");
-
-        while ($row = mysqli_fetch_assoc($result)) {
-            $location = $row['lesson_location'];
-            echo '<option value="'.$location.'">'.$location.'</option>';
-        }
-
-?>
 
 <table class="table table-striped table-dark">
   <thead>
