@@ -12,10 +12,23 @@
 include('includes/navbar.php');
 ?>
 
-
-
 <!-- Dishes Table -->
-<div class="dish-table>
+<div class="dish-table">
+
+<?php
+        $con = mysqli_connect("db.luddy.indiana.edu","i494f23_klhribal","my+sql=i494f23_klhribal", "i494f23_klhribal");
+        if (!$con){
+            die("Failed to connect to MySQL: " . mysqli_connect_error() . "<br><br>");
+        }
+        $result = mysqli_query($con, "SELECT * FROM lesson as l join freelance as f on f.tutorID=l.tutorID where f.tutorID IN (SELECT tutorID from lesson) GROUP BY lesson_location order by lesson_location;");
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            $location = $row['lesson_location'];
+            echo '<option value="'.$location.'">'.$location.'</option>';
+        }
+
+?>
+
 <table class="table table-striped table-dark">
   <thead>
     <tr>

@@ -21,6 +21,7 @@ include('includes/navbar.php');
 ?>
 
 <!-- Dishes Table -->
+<div class="dish-table>
 <table class="table table-striped table-dark">
   <thead>
     <tr>
@@ -57,7 +58,7 @@ include('includes/navbar.php');
     </tr>
   </tbody>
 </table>
-
+</div>
 <!-- Images Row -->
 <div class="container">
   <div class="row">
