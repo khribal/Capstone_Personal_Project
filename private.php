@@ -14,14 +14,13 @@ include('includes/navbar.php');
 
 <div class="form-container">
 <h1 class="enter-dish">Enter a new dish!</h1>
-<form action="" method="post">
+<form id="dish-form" action="" method="post">
 <label for="dish-name">Dish Name:</label>
-    <input type="text" id="dish-name" name="dish-name" required><br><br>
+    <input type="text" id="dish-name" name="dish-name" pattern="[A-Za-z]+" required><br><br>
 <label for="dish-price">Dish Price:</label>
-    <input type="text" id="dish-price" name="dish-price" required><br><br>
+    <input type="text" id="dish-price" name="dish-price" pattern="^\d+(\.\d{1,2})?$" required><br><br>
 <label for="dish-desc">Dish Description:</label>
-    <input type="text" id="dish-desc" name="dish-desc" required><br><br>
-
+    <input type="text" id="dish-desc" name="dish-desc" pattern="[A-Za-z]+" required><br><br>
 <div class="checkbox">
 <?php
 $con = mysqli_connect("db.luddy.indiana.edu","i494f23_klhribal","my+sql=i494f23_klhribal", "i494f23_klhribal");
@@ -46,6 +45,8 @@ while($row = mysqli_fetch_assoc($result)){
 </form>
 </div>
 
+<!-- Link to JS -->
+<script src="js/site.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

@@ -22,7 +22,5 @@ function isOddMinute() {
     }
   });
   
-  
-  
-  
-  
+
+
