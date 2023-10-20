@@ -22,6 +22,7 @@ include('includes/navbar.php');
         <th scope="col">Dish Name</th>
         <th scope="col">Dish Price</th>
         <th scope="col">Dish Description</th>
+        <th scope="col">Dietary Preference</th>
     </tr>
   </thead>
   <tbody>
@@ -42,6 +43,7 @@ while($row = mysqli_fetch_assoc($result)){
   echo '<th scope="row">'.$row['item_name']."</th>";
   echo "<td>".$row['price']."</td>";
   echo "<td>".$row['item_description']."</td>";
+  echo "<td>".$row['attribute']."</td>";
   echo "</tr>";
 };
 

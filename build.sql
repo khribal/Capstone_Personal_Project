@@ -55,6 +55,7 @@ CREATE table menu_items(
     item_name varchar(50),
     item_description varchar(200),
     price float,
+    attribute varchar(50),
     primary key (id)
 )
 ENGINE=INNODB;
@@ -115,13 +116,16 @@ insert into employee values
 ;
 
 insert into menu_items values
-(1, 'Strawberry Shortcake', 'A delightful mix of textures and flavors: sweet, tart strawberries paired with light, airy cake or biscuits. Perfect harmony in every bite.', 10.99),
-(2, 'Peach Cobbler', 'Savor the taste of summer with our Peach Cobbler—juicy peaches baked to perfection under a sweet golden biscuit crust, served piping hot.', 7.99),
-(3, 'Creme Brulee', 'Indulge in elegance with our Crème Brûlée—a silky vanilla-infused custard with a caramelized sugar crust, a timeless French dessert perfected for your delight.', 13.99),
-(4, 'Cheesecake', 'Indulge in creamy perfection with our Cheesecake—cream cheese, sugar, and vanilla blend on a buttery graham cracker crust. Pure decadence in every bite.', 12.99),
+(1, 'Strawberry Shortcake', 'A delightful mix of textures and flavors: sweet, tart strawberries paired with light, airy cake or biscuits. Perfect harmony in every bite.', 10.99, 'Gluten Free'),
+(2, 'Peach Cobbler', 'Savor the taste of summer with our Peach Cobbler—juicy peaches baked to perfection under a sweet golden biscuit crust, served piping hot.', 7.99, 'Vegan'),
+(3, 'Creme Brulee', 'Indulge in elegance with our Crème Brûlée—a silky vanilla-infused custard with a caramelized sugar crust, a timeless French dessert perfected for your delight.', 13.99, 'Vegetarian'),
+(4, 'Cheesecake', 'Indulge in creamy perfection with our Cheesecake—cream cheese, sugar, and vanilla blend on a buttery graham cracker crust. Pure decadence in every bite.', 12.99, 'Dairy Free'),
+(6, 'Gelato', 'Italian ice cream, richer & creamier due to lower fat & less air. A luxurious frozen treat, offering intense flavors in every spoonful.', 10.99, 'Vegan'),
+(7, 'Tiramisu', 'An Italian dessert consisting of layers of coffee-soaked ladyfingers and mascarpone cheese, flavored with cocoa powder. It is chilled and served cold.', 10.99, 'Gluten Free')
+;
+
+insert into menu_items(id, item_name, item_description, price) values
 (5, 'Brownie', 'A dense, fudgy chocolate dessert, usually square-shaped. It is often served with powdered sugar, icing, or ice cream.', 10.99),
-(6, 'Gelato', 'Italian ice cream, richer & creamier due to lower fat & less air. A luxurious frozen treat, offering intense flavors in every spoonful.', 10.99),
-(7, 'Tiramisu', 'An Italian dessert consisting of layers of coffee-soaked ladyfingers and mascarpone cheese, flavored with cocoa powder. It is chilled and served cold.', 10.99),
 (8, 'Cannoli', 'Fried pastry tubes filled with sweet ricotta, sugar, and chocolate chips. A delectable blend of crunchy and creamy indulgence.', 10.99)
 ;
 
