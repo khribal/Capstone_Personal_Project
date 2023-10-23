@@ -74,20 +74,27 @@ mysqli_close($conn);
 </div>
 
 <!-- Images Row -->
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col">
-    <img src="img/strawberry.jpg" alt="strawberry-shortcake">
+    <img src="img/dessert1.png" alt="strawberry-shortcake">
     </div>
     <div class="col">
-    <img src="img/peach.jpg" alt="peach-cobbler">
+    <img src="img/dessert2.png" alt="peach-cobbler">
     </div>
     <div class="col">
-    <img src="img/creme.jpg" alt="creme-brulee">
+    <img src="img/dessert3.png" alt="creme-brulee">
     </div>
   </div>
-</div>
+</div> -->
 
+<div class="image-div">
+<div class="image-container">
+    <img src="img/dessert1.png" alt="Image 1">
+    <img src="img/dessert2.png" alt="Image 2">
+    <img src="img/dessert3.png" alt="Image 3">
+</div>
+</div>
 
 <!-- Link to Nav Button JS -->
 <script src="js/site.js"></script>

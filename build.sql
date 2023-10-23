@@ -51,7 +51,7 @@ CREATE table employee(
 ENGINE=INNODB;
 
 CREATE table menu_items(
-    id integer,
+    id integer AUTO_INCREMENT,
     item_name varchar(50),
     item_description varchar(200),
     price float,

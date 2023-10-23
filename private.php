@@ -14,29 +14,30 @@ include('includes/navbar.php');
 
 <div class="form-container">
 <h1 class="enter-dish">Enter a new dish!</h1>
-<form id="dish-form" action="" method="post">
+<form id="dish-form" action="thankyou.php" method="post">
 <label for="dish-name">Dish Name:</label>
-    <input type="text" id="dish-name" name="dish-name" pattern="[A-Za-z]+" required><br><br>
+    <input type="text" id="dish-name" name="dish-name" pattern="[A-Za-z ]+" title="You may only enter letters and spaces." required><br><br>
 <label for="dish-price">Dish Price:</label>
-    <input type="text" id="dish-price" name="dish-price" pattern="^\d+(\.\d{1,2})?$" required><br><br>
+    <input type="text" id="dish-price" name="dish-price" pattern="^\d+(\.\d{1,2})?$" title="You must enter a number, with max 2 decimal places." required><br><br>
 <label for="dish-desc">Dish Description:</label>
-    <input type="text" id="dish-desc" name="dish-desc" pattern="[A-Za-z]+" required><br><br>
+    <input type="text" id="dish-desc" name="dish-desc" pattern="[A-Za-z ]+" title="You may only enter letters and spaces." required><br><br>
 <div class="checkbox">
+
 <?php
 $con = mysqli_connect("db.luddy.indiana.edu","i494f23_klhribal","my+sql=i494f23_klhribal", "i494f23_klhribal");
 if (!$con){
     die("Failed to connect to MySQL: " . mysqli_connect_error() . "<br><br>");
 };
 
-$query = 'SELECT distinct attribute from menu_items where attribute is not null;';
+$query = 'SELECT distinct attribute from menu_items where attribute is not null and attribute != "";';
 $result = mysqli_query($con, $query);
 
 while($row = mysqli_fetch_assoc($result)){
-    echo '<input type="checkbox"';
-    echo 'id='.$row['attribute'].'name=attribute>';
-    echo '<label for='.$row['attribute'].'>'.$row['attribute'].'</label><br>';
-  };
-
+    echo '<input type="radio" id="' . $row['attribute'] . '" name="attribute" value ="'. $row['attribute'] . '" >';
+    echo '<label for="' . $row['attribute'] . '">' . $row['attribute'] . '</label><br>';
+}
+  
+mysqli_close($con);
 ?>
 </div>
 
@@ -44,6 +45,7 @@ while($row = mysqli_fetch_assoc($result)){
 
 </form>
 </div>
+
 
 <!-- Link to JS -->
 <script src="js/site.js"></script>

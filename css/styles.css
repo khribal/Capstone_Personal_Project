@@ -1,7 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 .dish-table{
@@ -70,3 +69,33 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+
+.centered-button {
+    display: block;
+    text-align: center;
+}
+
+.centered-button button {
+    text-align: center;
+}
+
+/* Images Row */
+body, html {
+    margin: 0;
+    height: 100%;
+}
+
+.image-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
