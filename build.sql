@@ -5,6 +5,8 @@ drop table if exists employee;
 drop table if exists restaurant_location;
 drop table if exists orders;
 drop table if exists customer;
+drop table if exists attribute;
+drop table if exists dish_attribute;
 
 CREATE TABLE customer (
     id integer,
@@ -81,6 +83,21 @@ create table shift(
 )
 ENGINE=INNODB;
 
+create table attribute(
+    id int not null,
+    attribute_type varchar(50),
+    primary key (id)
+)
+;
+
+create table dish_attribute(
+    dish_id int not null,
+    attribute_id int not null,
+    foreign key (dish_id) references menu_items(id),
+    foreign key (attribute_id) references attribute(id)
+)
+ENGINE=INNODB;
+
 insert into customer values
 (1, 'John', 'Smith', 'jsmith@gmail.com', '530-987-4323'),
 (2, 'Alex', 'Rogers', 'alroge@gmail.com', '322-987-2345'),
@@ -147,4 +164,21 @@ insert into shift values
 (2, 1, '2023-09-15', '9:15:39', '12:30:53'),
 (3, 2, '2023-09-17', '15:48:43', '17:59:34'),
 (4, 2, '2023-06-01', '16:00:12', '18:22:22')
+;
+
+insert into attribute values
+(1, 'Vegetarian'),
+(2, 'Vegan'),
+(3, 'Gluten Free'),
+(4, 'Dairy Free')
+;
+
+insert into dish_attribute values
+(1, 1),
+(1, 2),
+(2, 3),
+(3, 4),
+(4, 4),
+(6, 1), 
+(8, 2)
 ;

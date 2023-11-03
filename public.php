@@ -34,7 +34,11 @@ if (!$con){
     die("Failed to connect to MySQL: " . mysqli_connect_error() . "<br><br>");
 };
 
-$query = 'SELECT * from menu_items;';
+$query = 'SELECT menu_items.id, menu_items.item_name, menu_items.price, menu_items.item_description, GROUP_CONCAT(attribute.attribute_type) AS attributes
+          FROM menu_items
+          LEFT JOIN dish_attribute ON menu_items.id = dish_attribute.dish_id
+          LEFT JOIN attribute ON dish_attribute.attribute_id = attribute.id
+          GROUP BY menu_items.id;';
 $result = mysqli_query($con, $query);
 
 
@@ -43,50 +47,17 @@ while($row = mysqli_fetch_assoc($result)){
   echo '<th scope="row">'.$row['item_name']."</th>";
   echo "<td>".$row['price']."</td>";
   echo "<td>".$row['item_description']."</td>";
-  echo "<td>".$row['attribute']."</td>";
+  echo "<td>".$row['attributes']."</td>";
+  echo '<td><a href="edit.php?id=' . $row['id'] . '" class="btn btn-info">Edit</a></td>';
   echo "</tr>";
-};
-
+}
 mysqli_close($conn);
 ?>
-    <!-- <tr> -->
-<!-- <td>$10.99</td> -->
-    <!-- <th scope="row">Strawberry Shortcake</th> -->
-      <!-- <td>This classic treat offers a harmonious blend of textures and flavors, with the sweet and tart strawberries complementing the light and airy cake or biscuits, all crowned by the richness of the whipped cream.</td>
-    </tr>
-    <tr>
-      <th scope="row">Peach Cobbler</th>
-      <td>$12.99</td>
-      <td>Indulge in the warmth of summer with our Peach Cobbler, a comforting dessert that captures the essence of ripe, juicy peaches. Served piping hot, our cobbler features succulent peach slices baked to perfection beneath a sweet, golden biscuit topping.</td>
-    </tr>
-    <tr>
-      <th scope="row">Creme Brulee</th>
-      <td>$7.99</td>
-      <td>Experience the epitome of elegance with our Crème Brûlée, a timeless French dessert. Delight in the silky smoothness of vanilla-infused custard, lovingly prepared to a velvety perfection. The pièce de résistance is the tantalizingly crisp, caramelized sugar crust that shatters with your first indulgent spoonful.</td>
-    </tr>
-    <tr>
-      <th scope="row">Cheesecake</th>
-      <td>$13.99</td>
-      <td>Indulge in pure decadence with our Cheesecake, a luxurious dessert that defines creamy perfection. Our signature cheesecake is a masterful blend of rich cream cheese, sugar, and a hint of vanilla, baked to a velvety smoothness on a buttery graham cracker crust. </td>
-    </tr> -->
+
   </tbody>
 </table>
 </div>
 
-<!-- Images Row -->
-<!-- <div class="container">
-  <div class="row">
-    <div class="col">
-    <img src="img/dessert1.png" alt="strawberry-shortcake">
-    </div>
-    <div class="col">
-    <img src="img/dessert2.png" alt="peach-cobbler">
-    </div>
-    <div class="col">
-    <img src="img/dessert3.png" alt="creme-brulee">
-    </div>
-  </div>
-</div> -->
 
 <div class="image-div">
 <div class="image-container">
