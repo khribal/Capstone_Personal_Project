@@ -41,10 +41,10 @@ echo '<div class="form-container">';
 echo '<h1 class="enter-dish">Edit this dish</h1>';
 echo '<form id="dish-form" action="editthanks.php?id=' . $itemId . '" method="post">';
 echo '<label for="dish-name">Dish Name:</label>';
-echo '<input type="text" id="dish-name" name="dish-name" pattern="[A-Za-z.-\s]+" title="You may only enter letters and spaces." value="'. htmlspecialchars($menuItem['item_name'], ENT_QUOTES) . '" required><br><br>';
+echo '<input type="text" id="dish-name" name="dish-name" pattern="^[A-Za-z.&\s-]+$" title="You may only enter letters and spaces." value="'. htmlspecialchars($menuItem['item_name'], ENT_QUOTES) . '" required><br><br>';
 echo '<label for="dish-price">Dish Price:</label>';
 echo '<input type="text" id="dish-price" name="dish-price" pattern="^\d+(\.\d{1,2})?$" title="You must enter a number, with max 2 decimal places." value="'. htmlspecialchars($menuItem['price'], ENT_QUOTES) . '" required><br><br>';    echo '<label for="dish-desc">Dish Description:</label>';
-echo '<input type="text" id="dish-desc" name="dish-desc" pattern="[A-Za-z.-\s]+" title="You may only enter letters and spaces." value="'. htmlspecialchars($menuItem['item_description'], ENT_QUOTES) . '" required><br><br>';
+echo '<input type="text" id="dish-desc" name="dish-desc" pattern="^[A-Za-z.&\s-]+$" title="You may only enter letters and spaces." value="'. htmlspecialchars($menuItem['item_description'], ENT_QUOTES) . '" required><br><br>';
 echo '<div class="checkbox">';
 
 
