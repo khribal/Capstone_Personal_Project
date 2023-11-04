@@ -31,3 +31,58 @@ body, html {
     justify-content: space-around;
     align-items: center;
 }
+
+/* Form Styling */
+
+/* Styles for the form container */
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for form labels */
+.form-container label {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    display: block;
+}
+
+/* Styles for form input fields */
+.form-container input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Styles for checkbox container */
+.form-container .checkbox {
+    margin-bottom: 1em;
+}
+
+/* Styles for checkboxes and labels */
+.form-container .checkbox input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Styles for the submit button */
+.form-container input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the submit button */
+.form-container input[type="submit"]:hover {
+    background-color: #45a049;
+}

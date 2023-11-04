@@ -41,10 +41,10 @@ echo '<div class="form-container">';
 echo '<h1 class="enter-dish">Edit this dish</h1>';
 echo '<form id="dish-form" action="editthanks.php?id=' . $itemId . '" method="post">';
 echo '<label for="dish-name">Dish Name:</label>';
-echo '<input type="text" id="dish-name" name="dish-name" pattern="^[A-Za-z\s]+$" title="You may only enter letters and spaces." value="'. htmlspecialchars($menuItem['item_name'], ENT_QUOTES) . '" required><br><br>';
+echo '<input type="text" id="dish-name" name="dish-name" pattern="^[A-Za-z\s.&\-]+$" title="You may only enter letters and spaces." value="'. htmlspecialchars($menuItem['item_name'], ENT_QUOTES) . '" required><br><br>';
 echo '<label for="dish-price">Dish Price:</label>';
 echo '<input type="text" id="dish-price" name="dish-price" pattern="^\d+(\.\d{1,2})?$" title="You must enter a number, with max 2 decimal places." value="'. htmlspecialchars($menuItem['price'], ENT_QUOTES) . '" required><br><br>';    echo '<label for="dish-desc">Dish Description:</label>';
-echo '<input type="text" id="dish-desc" name="dish-desc" pattern="^[A-Za-z\s]+$" title="You may only enter letters and spaces." value="'. htmlspecialchars($menuItem['item_description'], ENT_QUOTES) . '" required><br><br>';
+echo '<input type="text" id="dish-desc" name="dish-desc"  pattern="^[A-Za-z\s.&\-]+$" title="You may only enter letters and spaces." value="'. htmlspecialchars($menuItem['item_description'], ENT_QUOTES) . '" required><br><br>';
 echo '<div class="checkbox">';
 
 
@@ -76,6 +76,7 @@ else {
 ?>
 <!-- Link to JS and Bootstrap scripts -->
 <script src="js/site.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

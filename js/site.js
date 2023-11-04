@@ -24,3 +24,21 @@ function isOddMinute() {
   
 
 
+ // Function to validate dish name and description input
+function validateInput(input) {
+  // Regex to allow letters, spaces, periods, apostrophes, hyphens, and ampersands, but disallow numbers
+  var regex = /^[A-Za-z\s.'&-]+$/;
+  return regex.test(input);
+}
+
+// Function to handle form submission
+function validateForm() {
+  var dishName = document.getElementById('dish-name').value;
+  var dishDesc = document.getElementById('dish-desc').value;
+
+  if (!validateInput(dishName) || !validateInput(dishDesc)) {
+      alert('Invalid input. Please enter only letters, spaces, periods, apostrophes, hyphens, and ampersands.');
+      return false; // Prevent form submission
+  }
+  return true; // Allow form submission
+}
