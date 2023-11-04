@@ -19,13 +19,13 @@
         <h1 class="enter-dish">Enter a new dish!</h1>
         <form id="dish-form" action="thankyou.php" method="post">
             <label for="dish-name">Dish Name:</label>
-            <input type="text" id="dish-name" name="dish-name" pattern="^[A-Za-z.&\s-]+$"
+            <input type="text" id="dish-name" name="dish-name" pattern="^[A-Za-z\s]+$"
                 title="You may only enter letters and spaces." required><br><br>
             <label for="dish-price">Dish Price:</label>
             <input type="text" id="dish-price" name="dish-price" pattern="^\d+(\.\d{1,2})?$"
                 title="You must enter a number, with max 2 decimal places." required><br><br>
             <label for="dish-desc">Dish Description:</label>
-            <input type="text" id="dish-desc" name="dish-desc" pattern="^[A-Za-z.&\s-]+$"
+            <input type="text" id="dish-desc" name="dish-desc" pattern="^[A-Za-z\s]+$"
                 title="You may only enter letters and spaces." required><br><br>
             <div class="checkbox">
 
