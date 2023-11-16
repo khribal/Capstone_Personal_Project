@@ -49,7 +49,7 @@ while($row = mysqli_fetch_assoc($result)){
   echo "<td>".$row['item_description']."</td>";
   echo "<td>".$row['attributes']."</td>";
   echo '<td><a href="edit.php?id=' . $row['id'] . '" class="btn btn-info">Edit</a></td>';
-  echo '<td><a href="#" class="btn btn-danger" onclick="confirmDelete(' . $row['id'] . ')">Delete</a></td>';
+  echo '<td><button class="btn btn-danger" onclick="confirmDelete(' . $row['id'] . ')">Delete</button></td>';
   echo "</tr>";
 }
 
@@ -69,6 +69,20 @@ mysqli_close($conn);
 </div>
 </div>
 
+
+<script>
+function confirmDelete(itemId) {
+  var result = confirm("Are you sure you want to delete this record?");
+  
+  if (result) {
+    // User clicked OK, proceed with deletion
+    window.location.href = 'delete.php?id=' + itemId;
+  } else {
+    // User clicked Cancel or closed the pop-up
+    // Do nothing or provide additional feedback if needed
+  }
+}
+</script>
 <!-- Link to Nav Button JS -->
 <script src="js/site.js"></script>
 
