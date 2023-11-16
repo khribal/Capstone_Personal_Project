@@ -49,8 +49,10 @@ while($row = mysqli_fetch_assoc($result)){
   echo "<td>".$row['item_description']."</td>";
   echo "<td>".$row['attributes']."</td>";
   echo '<td><a href="edit.php?id=' . $row['id'] . '" class="btn btn-info">Edit</a></td>';
+  echo '<td><a href="#" class="btn btn-danger" onclick="confirmDelete(' . $row['id'] . ')">Delete</a></td>';
   echo "</tr>";
 }
+
 mysqli_close($conn);
 ?>
 

@@ -5,8 +5,9 @@ drop table if exists employee;
 drop table if exists restaurant_location;
 drop table if exists orders;
 drop table if exists customer;
-drop table if exists attribute;
 drop table if exists dish_attribute;
+drop table if exists attribute;
+
 
 CREATE TABLE customer (
     id integer,
