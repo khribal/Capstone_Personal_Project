@@ -35,7 +35,9 @@ if (isset($_GET['id'])) {
 
     if ($result && $result2 && $result3) {
         // Successfully deleted, you can redirect or provide feedback
-        echo '<div style="text-align: center;"> Record deleted successfully. </div>';
+        echo '<div style="text-align: center; font-size: 16px; font-weight: bold;">Record updated successfully. Redirecting in 3 seconds...</div>';
+        // Redirect back to the public PHP page after 3 seconds
+        header("refresh:2;url=public.php");
     } else {
         // Failed to delete, handle error
         echo "Error deleting record: " . mysqli_error($con);
