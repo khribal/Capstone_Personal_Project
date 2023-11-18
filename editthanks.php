@@ -31,8 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dishDesc = mysqli_real_escape_string($con, $_POST['dish-desc']); // Sanitize and escape the input
     $attributes = $_POST['attributes']; // Assuming this is an array of attribute IDs
 
-
-
     // Assuming you have the item_id from the previous page (edit.php) as well
     $itemId = $_GET['id'];
 
@@ -43,13 +41,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $deleteQuery = "DELETE FROM dish_attribute WHERE dish_id='$itemId'";
         mysqli_query($con, $deleteQuery);
 
-        // Insert new associations into dish_attribute  table
+        // Insert new associations into dish_attribute table
         foreach ($attributes as $attributeId) {
             $insertQuery = "INSERT INTO dish_attribute (dish_id, attribute_id) VALUES ('$itemId', '$attributeId')";
             mysqli_query($con, $insertQuery);
         }
 
-        echo '<div style="text-align: center; font-size: 16px; font-weight: bold;">Record updated successfully</div>';
+        echo '<div style="text-align: center; font-size: 16px; font-weight: bold;">Record updated successfully. Redirecting in 3 seconds...</div>';
+        // Redirect back to the public PHP page after 3 seconds
+        header("refresh:2;url=public.php");
     } else {
         echo "Error updating record: " . mysqli_error($con);
     }
@@ -61,7 +61,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Form not submitted.";
 }
 ?>
-
 
     <!-- Link to JS -->
     <script src="js/site.js"></script>
