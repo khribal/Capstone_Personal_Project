@@ -9,17 +9,13 @@
     <link rel="stylesheet" href="css/styles.css">
     <title>Document</title>
 </head>
-
 <body>
 <?php
 include('includes/navbar.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
-    $firstname = $_POST["first-name"];
-    $lastname = $_POST["last-name"];
     $email = $_POST["email"];
-    $password = $_POST["password"];
+    $enteredPassword = $_POST["password"];
 
     // Database connection code
     $con = mysqli_connect("db.luddy.indiana.edu", "i494f23_klhribal", "my+sql=i494f23_klhribal", "i494f23_klhribal");
@@ -28,30 +24,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Failed to connect to MySQL: " . mysqli_connect_error() . "<br><br>");
     }
 
-    // Check if the email already exists
-    $checkQuery = "SELECT * FROM users WHERE email = '$email'";
-    $checkResult = mysqli_query($con, $checkQuery);
+    // Retrieve the hashed password from the database based on the entered email
+    $retrieveQuery = "SELECT password FROM users WHERE email = '$email'";
+    $result = mysqli_query($con, $retrieveQuery);
 
-    if (mysqli_num_rows($checkResult) > 0) {
-        echo '<div style="text-align: center; color: red; font-size: 16px; font-weight: bold;">Email already exists. Please use a different email address, or click below to log in with your existing account.</div>';
-        echo '<div class="starter-template" style="display: flex; align-items: center; justify-content: center; flex-direction: column; height: 100vh; margin: 0;"><a href="login.php"><button type="button" class="btn btn-info">Log in</button></a></div>';
-    } else {
-        // Hash the password with bcrypt
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+    if (!$result) {
+        // Display the MySQL error for debugging purposes
+        echo "Error: " . $retrieveQuery . "<br>" . mysqli_error($con);
+        exit();
+    }
 
-        // Insert user into the users table with hashed password
-        $query = "INSERT INTO users (fname, lname, email, password) VALUES ('$firstname', '$lastname', '$email', '$hashedPassword')";
+    if ($row = mysqli_fetch_assoc($result)) {
+        $storedPassword = $row['password'];
 
-        if (mysqli_query($con, $query)) {
-            echo '<div style="text-align: center; font-size: 16px; font-weight: bold;">Registration successfully!</div>';
+        // Compare the entered password with the stored hashed password
+        if (password_verify($enteredPassword, $storedPassword)) {
+            // Password is correct - user is logged in
+            echo '<div style="text-align: center; font-size: 16px; font-weight: bold;">Login successful!</div>';
         } else {
-            echo "Error: " . $query . "<br>" . mysqli_error($con);
+            // Password is incorrect
+            echo '<div style="text-align: center; color: red; font-size: 16px; font-weight: bold;">Incorrect password. Please try again.</div>';
         }
+    } else {
+        // User with the entered email doesn't exist
+        echo '<div style="text-align: center; color: red; font-size: 16px; font-weight: bold;">User not found. Please check your email or <a href="register.php">register</a> for an account.</div>';
     }
 
     mysqli_close($con);
 }
 ?>
+
 
     <!-- Link to JS -->
     <script src="js/site.js"></script>
@@ -68,5 +70,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
-
 

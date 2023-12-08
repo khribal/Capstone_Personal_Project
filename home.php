@@ -23,9 +23,9 @@ include('includes/navbar.php');
 
 <main role="main" class="container">
 
-<div class="starter-template">
-  <h1>Click below to create an account with us.</h1>
-  <a href="register.php"><button type="button" class="btn btn-info">Register</button></a>
+<div class="starter-template" class="starter-template" style="display: flex; align-items: center; justify-content: center; flex-direction: column; height: 100vh; margin: 0;">
+  <h1>Click below to create an account with us.</h1><br>
+  <a href="register.php"><button type="button" class="btn btn-info">Register</button>
 </div>
 
 </main><!-- /.container -->

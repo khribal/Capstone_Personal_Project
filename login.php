@@ -16,23 +16,14 @@
     ?>
 
     <div class="form-container">
-        <h1 class="enter-dish">Create an account</h1>
-        <form id="register-form" action="register_complete.php" method="post">
-            <label for="first-name">First Name:</label>
-            <input type="text" id="first-name" name="first-name" pattern="^[A-Za-z\s]+$"
-                title="You may only enter letters and spaces." required><br><br>
-            <label for="last-name">Last Name:</label>
-            <input type="text" id="last-name" name="last-name" pattern="^[A-Za-z\s]+$"
-                title="You may only enter letters and spaces." required><br><br>
-            <label for="email">Email Address:</label>
-            <input type="text" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" 
-                title="Enter a valid email address" required><br><br>
-            <label for="password">Password:</label>
-            <input type="text" id="password" name="password" required><br><br>
-
-            <input type="submit" value="Submit">
-
-        </form>
+        <h1 class="log-in">Log in to your account</h1>
+        <form id="login-form" action="login_complete.php" method="post">
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" required><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+    <input type="submit" value="Submit">
+    </form>
     </div>
 
 

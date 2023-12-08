@@ -104,6 +104,7 @@ create table users(
     fname varchar(30),
     lname varchar(50),
     email varchar(50),
+    password varchar(250),
     primary key (id)
 )
 ENGINE=INNODB;

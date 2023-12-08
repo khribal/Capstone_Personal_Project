@@ -25,6 +25,11 @@
         <a class="nav-link" href="#"><button id="myButton" class="btn btn-info">Check Discount</button></a>
       </li>
     </ul>
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+      <a href="login.php">Log in</a>
+      </li>
+  </ul>
   </div>
 </nav>
 </div>
