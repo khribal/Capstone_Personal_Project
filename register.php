@@ -25,7 +25,7 @@
             <input type="text" id="last-name" name="last-name" pattern="^[A-Za-z\s]+$"
                 title="You may only enter letters and spaces." required><br><br>
             <label for="email">Email Address:</label>
-            <input type="text" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" 
+            <input type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
                 title="Enter a valid email address" required><br><br>
             <label for="password">Password:</label>
             <input type="text" id="password" name="password" required><br><br>
