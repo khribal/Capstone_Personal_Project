@@ -21,6 +21,15 @@ include('includes/navbar.php');
 ?>
 
 
+<main role="main" class="container">
+
+<div class="starter-template">
+  <h1>Click below to create an account with us.</h1>
+  <a href="register.php"><button type="button" class="btn btn-info">Register</button></a>
+</div>
+
+</main><!-- /.container -->
+
 
 
 <!-- Link to Nav Button JS -->
