@@ -27,7 +27,16 @@
     </ul>
     <ul class="navbar-nav ms-auto">
       <li class="nav-item">
-      <a href="login.php">Log in</a>
+      <?php
+      session_start(); // Start the session
+      if (isset($_SESSION['user_email'])) {
+          // User is logged in
+          echo '<li class="nav-item"><a href="logout.php">Logout</a></li>';
+      } else {
+          // User is not logged in
+          echo '<li class="nav-item"><a href="login.php">Log in</a></li>';
+      }
+      ?>
       </li>
   </ul>
   </div>

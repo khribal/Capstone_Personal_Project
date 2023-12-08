@@ -13,7 +13,16 @@
 <body>
     <?php
     include('includes/navbar.php');
+    session_start(); // Start the session
+
+// Check if the user is not logged in
+if (!isset($_SESSION['user_email'])) {
+    header('Location: home.php'); // Redirect to the home page
+    exit();
+}
     ?>
+
+    
 
     <div class="form-container">
         <h1 class="enter-dish">Enter a new dish!</h1>

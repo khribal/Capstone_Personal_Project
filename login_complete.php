@@ -40,6 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Compare the entered password with the stored hashed password
         if (password_verify($enteredPassword, $storedPassword)) {
             // Password is correct - user is logged in
+            session_start(); // Start the session
+            $_SESSION['user_email'] = $email;
             echo '<div style="text-align: center; font-size: 16px; font-weight: bold;">Login successful!</div>';
         } else {
             // Password is incorrect
