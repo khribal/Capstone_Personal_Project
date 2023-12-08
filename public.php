@@ -48,9 +48,13 @@ while($row = mysqli_fetch_assoc($result)){
   echo "<td>".$row['price']."</td>";
   echo "<td>".$row['item_description']."</td>";
   echo "<td>".$row['attributes']."</td>";
-  echo '<td><a href="edit.php?id=' . $row['id'] . '" class="btn btn-info">Edit</a></td>';
-  echo '<td><button class="btn btn-danger" onclick="confirmDelete(' . $row['id'] . ')">Delete</button></td>';
-  echo "</tr>";
+  session_start(); // Start the session
+  // Check if the user is not logged in
+  if (isset($_SESSION['user_email'])) {
+    echo '<td><a href="edit.php?id=' . $row['id'] . '" class="btn btn-info">Edit</a></td>';
+    echo '<td><button class="btn btn-danger" onclick="confirmDelete(' . $row['id'] . ')">Delete</button></td>';
+    echo "</tr>";
+  }
 }
 
 mysqli_close($conn);
