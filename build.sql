@@ -99,6 +99,15 @@ create table dish_attribute(
 )
 ENGINE=INNODB;
 
+create table users(
+    id int not null AUTO_INCREMENT,
+    fname varchar(30),
+    lname varchar(50),
+    email varchar(50),
+    primary key (id)
+)
+ENGINE=INNODB;
+
 insert into customer values
 (1, 'John', 'Smith', 'jsmith@gmail.com', '530-987-4323'),
 (2, 'Alex', 'Rogers', 'alroge@gmail.com', '322-987-2345'),
